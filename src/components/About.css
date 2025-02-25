@@ -1,0 +1,37 @@
+.about-container {
+  width: auto;
+  height: 150px;
+  margin-top: 40px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px; /* حداکثر عرض */
+  margin: 0 auto; /* وسط‌چین کردن */
+}
+
+img {
+  width: 50%;
+  float: left;
+  display: block;
+}
+.GiLoveMystery {
+  font-size: 40px;
+  color: rgb(0, 110, 194);
+  display: block;
+}
+
+.firstp {
+  flex-grow: 1; /* متن اجازه دارد کش بیاید */
+  display: flex;
+  align-items: center; /* تنظیم متن و عکس در یک راستا */
+  gap: 20px; /* فاصله بین متن و عکس */
+  direction: rtl;
+  hyphens: auto;
+  text-align: justify;
+  margin-top: 30px;
+  margin-right: 10px;
+  float: right;
+  width: 550px;
+  display: block;
+}
