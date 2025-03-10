@@ -1,0 +1,28 @@
+/* CartAnimation.css */
+.cart-icon {
+    position: fixed; /* تغییر به fixed */
+    top: 50%; /* وسط صفحه */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px; /* اندازه آیکون */
+    height: 80px;
+    background: linear-gradient(45deg, rgb(255, 0, 0), rgb(255, 255, 255)); /* رنگ گرادیانت */
+    border-radius: 50%; /* دایره بودن */
+    opacity: 0; /* شروع با شفافیت صفر */
+    transition: transform 1s, opacity 1s; /* انیمیشن */
+  }
+  
+  .cart-icon.animate {
+    transform: translate(-50%, -50%) scale(1.5) rotate(360deg); /* بزرگتر شدن و چرخش */
+    opacity: 1; /* نمایش */
+}
+
+  .cart-animation {
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+  }
+  
+  .cart-animation:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: #f50f0f; /* رنگ جدید در حین انیمیشن */
+  }
+  

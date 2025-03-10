@@ -1,131 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useCart } from "./CartProvider";
+import axios from "axios";
+import "./ProductDetails.css";
 
-const products = [
-  {
-    id: 1,
-    name: "iPhone 15 pro",
-    price: 1200,
-    image: "/images/iphone-15-pro.jpg",
-    description: "Best iPhone ever!",
-  },
-  {
-    id: 2,
-    name: "iPhone 12",
-    price: 2500,
-    image: "/images/iPhone-12.webp",
-    description: "Powerful laptop for professionals.",
-  },
-  {
-    id: 3,
-    name: "iPhone 14 pro",
-    price: 250,
-    image: "/images/iPhone-14-pro.jpg",
-    description: "Noise-canceling wireless earbuds.",
-  },
-  {
-    id: 4,
-    name:  "iPhone 16 pro Max",
-    price: 250,
-    image:  "/images/iPhone-16-pro-max.webp",
-    description: "Noise-canceling wireless earbuds.",
-  },
-  {
-    id: 5,
-    name:"iPhone 11",
-    price: 250,
-    image: "/images/iPhone-11.jpg",
-    description: "Noise-canceling wireless earbuds.",
-  },
-  {
-    id: 6,
-    name: "iPhone 11 Pro",
-    price: 250,
-    image: "/images/iPhone-11-pro.jpg",
-    description: "Noise-canceling wireless earbuds.",
-  },
-  {
-    id: 7,
-    name: "iPhone se 2022",
-    price: 250,
-    image: "/images/iPhone-se-2022.jpg",
-    description: "Noise-canceling wireless earbuds.",
-  },
-  {
-    id: 8,
-    name: "iPhone se 2020",
-    price: 250,
-    image: "/images/iPhone-se-2020.jpg",
-    description: "Noise-canceling wireless earbuds.",
-  },
-  {
-    id: 9,
-    name:  "iPhone 14 plus",
-    price: 250,
-    image: "/images/iPhone-14-plus.jpg",
-    description: "Noise-canceling wireless earbuds.",
-  },
-  {
-    id: 10,
-    name:"iPhone 14 Pro Max",
-    price: 250,
-    image: "/images/iPhone-14-pro-max.jpg",
-    description: "Noise-canceling wireless earbuds.",
-  },
-  {
-    id: 11,
-    name: "iPhone 12 pro Max",
-    price: 250,
-    image: "/images/iPhone-12-pro-max.jpg",
-    description: "Noise-canceling wireless earbuds.",
-  },
-  {
-    id: 12,
-    name: "iPhone xr",
-    price: 250,
-    image:  "/images/iPhone-xr.jpg",
-    description: "Noise-canceling wireless earbuds.",
-  },
-];
-
-const ProductDetails = () => {
+const ProductDetails = ({ addToCart }) => {
   const { id } = useParams();
-  const product = products.find((p) => p.id === parseInt(id));
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const { addToCart } = useCart();
+  useEffect(() => {
+    const fetchProductDetails = async () => {
+      try {
+        const response = await axios.get(
+          `https://fakestoreapi.com/products/${id}`
+        );
+        if (response.data) {
+          setProduct(response.data);
+        } else {
+          console.error("Product not found.");
+        }
+      } catch (error) {
+        console.error("Error fetching product details:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (!product) {
-    return <h2 className="text-center text-danger mt-5">محصول پیدا نشد!</h2>;
+    fetchProductDetails();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: "100vh" }}
+      >
+        <div className="spinner-border text-secondary" role="status">
+          <span className="visually-hidden">در حال بارگذاری...</span>
+        </div>
+      </div>
+    );
   }
 
-  const handleAddToCart = () => {
-    if (addToCart) {
-      addToCart(product.price);
-    } else {
-      console.error("addToCart is not defined");
-    }
-  };
+  if (!product) {
+    return <h2 className="text-center">404</h2>;
+  }
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 product-details">
       <div className="row">
         <div className="col-md-6">
           <img
             src={product.image}
-            className="img-fluid rounded shadow"
-            alt={product.name}
+            alt={product.title}
+            className="img-fluid product-image"
           />
         </div>
         <div className="col-md-6">
-          <h2 className="fw-bold">{product.name}</h2>
-          <p className="text-muted">{product.description}</p>
-          <h3 className="text-success">${product.price}</h3>
+          <h1 className="text-center">{product.title}</h1>
+          <p className="description">{product.description}</p>
+          <p className="price">قیمت: ${product.price}</p>
           <button
-            className="btn btn-warning btn-lg mt-3"
-            onClick={handleAddToCart}
+            className="btn btn-primary btn-buy"
+            onClick={() => addToCart(product)}
           >
-            افزودن به سبد خرید
+            خرید
           </button>
         </div>
       </div>

@@ -1,0 +1,57 @@
+
+.login-container {
+    max-width: 350px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgb(223, 221, 221);
+    border-radius: 8px;
+    box-shadow: 10 4px 50px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  .contentLog {
+    background-color: rgb(240, 240, 229);
+    height: 100vh;
+  }
+  
+  .forgot-password {
+    font-size: 0.9rem;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .btn-google {
+    background: #607f73;
+    color: white;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    gap: -10px; 
+  }
+  
+  .btn-google:hover {
+    background: #98f3cf;
+  }
+  .register {
+    margin-top: 10px;
+  }
+  .name {
+  text-align: right;
+  direction: rtl;
+  }
+  .FcGoogle {
+    float: right;
+    font-size: 14px;
+    margin-left: 8px; 
+    font-size: 1.2rem; 
+    margin-right: 50px;
+  }
+  .para {
+    color: rgb(255, 255, 255);
+    margin-left: 50px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+.or {
+    gap: 5px;
+    margin-left: 50px;
+}

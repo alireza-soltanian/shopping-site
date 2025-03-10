@@ -1,0 +1,35 @@
+.fade-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
+.faq-item {
+  text-align: right; 
+  color: black;
+  font-size: 15px;
+}
+.titltQuestion {
+  font-size: 16px;
+  color: rgb(77, 77, 77);
+}
+.firstTitle {
+  color: rgb(85, 22, 145);
+}
+.RiArrowDownSLine {
+  float: left;
+  font-size: 25px;
+  color: rgb(95, 25, 160);
+}

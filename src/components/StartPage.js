@@ -1,26 +1,46 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { EffectCards, Pagination, Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-cards";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import "./StartPage.css";
 
-const StartPage = () => {
+export default function StartPage() {
+  const images = [
+    "/images/start5.avif",
+    "/images/start2.jpg",
+    "/images/slide3.jpg",
+    "/images/start1.avif",
+  ];
+
   return (
-    <div className="container-start">
-      <div className="sticky-div">
-        <img src="images/home.avif" alt="iphone" className="my-image" />
-        <div className="ArchiveTopBannerWrp">
-          <h1 className="fs-5 border-end pe-1">آیفون</h1>
-          <h2 className="text-muted fs-5 flex-grow-1 ps-1">Iphone</h2>
-          <p>
-            قیمت مناسب برای خرید انواع گوشی های آیفون اپل از طریق لینک های زیر
-            ممکن شده است. موبایل های ایفون با داشتن امکانات بی نظیر در میان تلفن
-            های هوشمند موجود در بازار، قابلیت های بی نظیری را در زمینه قدرت
-            پردازش، دوربین با امکانات استثنایی و صفحه نمایش با طراحی ویژه و چشم
-            نواز را در اختیار کاربران قرار می دهد
-          </p>
+      <div className="slider-wrapper">
+        
+        <div className="slider-container">
+          <Swiper
+            effect={"cards"}
+            grabCursor={true}
+            modules={[EffectCards, Pagination, Autoplay, Navigation]}
+            pagination={{ clickable: true }}
+            navigation={true}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            className="mySwiper"
+          >
+            {images.map((src, index) => (
+              <SwiperSlide key={index} className="glass-card">
+                <div className="image-frame">
+                  <img
+                    src={src}
+                    alt={`Slide ${index + 1}`}
+                    className="slide-image"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
-    </div>
   );
-};
-
-export default StartPage;
+}

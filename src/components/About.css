@@ -1,37 +1,53 @@
-.about-container {
-  width: auto;
-  height: 150px;
-  margin-top: 40px;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 1200px; /* حداکثر عرض */
-  margin: 0 auto; /* وسط‌چین کردن */
-}
-
-img {
-  width: 50%;
-  float: left;
-  display: block;
-}
-.GiLoveMystery {
-  font-size: 40px;
-  color: rgb(0, 110, 194);
-  display: block;
-}
-
-.firstp {
-  flex-grow: 1; /* متن اجازه دارد کش بیاید */
+.custom-container {
   display: flex;
-  align-items: center; /* تنظیم متن و عکس در یک راستا */
-  gap: 20px; /* فاصله بین متن و عکس */
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  height: 500px;
+}
+
+.aboutsection {
+  border: 3px dashed rgb(228, 228, 228);
+  margin: 0px;
+  border-radius: 55px;
+}
+
+.aboutImage {
+  max-width: 250px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(82, 81, 81, 0.2);
+  transition: transform 0.3s;
+  position: relative;
+}
+.aboutImage:hover {
+  transform: scale(1.15);
+}
+
+.aboutText {
   direction: rtl;
-  hyphens: auto;
-  text-align: justify;
-  margin-top: 30px;
+  width: 85%;
+  margin-left: 15px;
+  margin-top: 20px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  margin: 10px 0;
+  min-height: 60px;
+}
+.numAbout {
+  display: inline-block; 
+  direction: ltr;
+  text-align: left; 
+  font-weight: bold;
   margin-right: 10px;
-  float: right;
-  width: 550px;
-  display: block;
+}
+.btnAbout {
+  font-size: 14px;
+  display: flex;
+  flex-direction: row-reverse; 
+  align-items: center; 
+}
+.btnAbout:hover {
+  transform: scale(1.15);
 }

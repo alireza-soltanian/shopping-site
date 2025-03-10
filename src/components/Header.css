@@ -1,0 +1,42 @@
+.TfiThemifyLogo {
+  color: rgb(107, 64, 122);
+  font-size: 55px;
+  margin-top: -6px;
+  margin-right: -50px;
+}
+.navbar-nav .nav-item .nav-link:hover {
+  background-color: rgba(222, 102, 238, 0.1);
+  color: #000000;
+  border-radius: 35px;
+  padding: 5px;
+}
+.selectedProducts {
+  background-color: rgba(222, 102, 238, 0.1);
+  border-radius: 35px;
+}
+
+.TbLogin {
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  margin-left: 10px;
+}
+.GiShoppingCart {
+  transform: scaleX(-1);
+  color: rgb(0, 0, 0);
+  font-size: 28px;
+}
+.headerTitle {
+  font-size: 15px;
+  margin-top: 6px;
+}
+a {
+  text-decoration: none;
+}
+.cart-count {
+  color: rgb(150, 26, 26);
+  padding: 0 3px;
+  font-size: 14px;
+}
+.navColo {
+  background: white;
+}
